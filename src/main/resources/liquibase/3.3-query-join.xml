@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd"
+        logicalFilePath="3.3-query_join.xml">
+    <changeSet id="query_join" author="max">
+        <sql>
+            SELECT * FROM "UserMessages" LEFT JOIN "Users" ON "UserMessages"."userId" = "Users"."id";
+        </sql>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd"
+        logicalFilePath="2.0-drop-tables.xml">
+    <changeSet id="drop_tables" author="max">
+        <dropTable cascadeConstraints="true"
+                   schemaName="public"
+                   tableName="CopyNews" />
+        <dropTable cascadeConstraints="true"
+                   schemaName="public"
+                   tableName="Notifications" />
+        <dropTable cascadeConstraints="true"
+                   schemaName="public"
+                   tableName="UserMessages" />
+        <dropTable cascadeConstraints="true"
+                   schemaName="public"
+                   tableName="UsersChats" />
+        <dropTable cascadeConstraints="true"
+                   schemaName="public"
+                   tableName="Chats" />
+        <dropTable cascadeConstraints="true"
+                   schemaName="public"
+                   tableName="Users" />
+    </changeSet>
+</databaseChangeLog>

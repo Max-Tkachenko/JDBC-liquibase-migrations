@@ -1,0 +1,49 @@
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    liquibase
+    sqlDriver
+}
+
+dependencies {
+    compile files('D:/Projects/Projects_JAVA/liquibase/liquibase.jar')
+    compile files('D:/Projects/Projects_JAVA/JavaDBC/postgresql-42.1.4.jar')
+    compile files('D:/Projects/Projects_JAVA/JUnit/junit-4.10.jar')
+
+    compile group: 'postgresql', name: 'postgresql', version: '9.0-801.jdbc4'
+    liquibase 'postgresql:postgresql:9.1-901-1.jdbc4'
+    liquibase 'org.liquibase:liquibase-core:3.2.2'
+    sqlDriver 'postgresql:postgresql:9.1-901-1.jdbc4'
+    compile group: 'org.liquibase', name: 'liquibase-gradle-plugin', version: '1.2.4'
+}
+
+task(runProject, dependsOn: 'classes', type: JavaExec) {
+    main = 'run.Main'
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+defaultTasks 'runProject'
+
+task updateDb(type: JavaExec) {
+    group = "Liquibase"
+    classpath configurations.liquibase
+    main = "liquibase.integration.commandline.Main"
+    args "--changeLogFile=$projectDir/src/main/resources/liquibase/changelog-0.1.0.xml"
+    args "--username=postgres"
+    args "--password=max12345"
+    args "--url=jdbc:postgresql://localhost:5432/Messanger_DB"
+    args "--driver=org.postgresql.Driver"
+    args "--defaultSchemaName=public"
+    args "update"
+}
+
+
+

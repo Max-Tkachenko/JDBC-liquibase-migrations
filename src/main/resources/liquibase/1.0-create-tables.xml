@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd"
+        logicalFilePath="1.0-create-tables.xml">
+    <changeSet id="create_tables" author="max">
+        <sql>
+            CREATE TABLE public."Users"
+            (
+            id integer NOT NULL,
+            "name" text NOT NULL,
+            "surname" text,
+            "age" integer NOT NULL,
+            CONSTRAINT "Users_pkey" PRIMARY KEY (id)
+            );
+
+            CREATE TABLE public."Chats"
+            (
+            id integer NOT NULL,
+            "name" text NOT NULL,
+            "dateOfCreating" date NOT NULL,
+            CONSTRAINT "Chats_pkey" PRIMARY KEY (id)
+            );
+
+            CREATE TABLE public."UsersChats"
+            (
+            id integer NOT NULL,
+            "userId" integer REFERENCES "Users"(id) NOT NULL,
+            "chatId" integer REFERENCES "Chats"(id) NOT NULL,
+            CONSTRAINT "UsersChats_pkey" PRIMARY KEY (id)
+            );
+
+            CREATE TABLE public."Notifications"
+            (
+            id integer NOT NULL,
+            "userId" integer REFERENCES "Users"(id) NOT NULL,
+            "context" text NOT NULL,
+            CONSTRAINT "Notifications_pkey" PRIMARY KEY (id)
+            );
+
+            CREATE TABLE public."UserMessages"
+            (
+            id integer NOT NULL,
+            "userId" integer REFERENCES "Users"(id) NOT NULL,
+            "chatId" integer REFERENCES "Chats"(id) NOT NULL,
+            "departureDate" timestamp NOT NULL,
+            "context" text NOT NULL,
+            CONSTRAINT "UserMessages_pkey" PRIMARY KEY (id)
+            );
+
+            CREATE TABLE public."News"
+            (
+            id integer NOT NULL,
+            "chatId" integer REFERENCES "Chats"(id) NOT NULL,
+            "dateOfCreating" timestamp NOT NULL,
+            "context" text NOT NULL,
+            CONSTRAINT "News_pkey" PRIMARY KEY (id)
+            );
+        </sql>
+    </changeSet>
+</databaseChangeLog>
