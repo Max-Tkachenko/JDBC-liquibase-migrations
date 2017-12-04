@@ -1,3 +1,2 @@
 language: java
-gradle access
 jdk: oraclejdk8
