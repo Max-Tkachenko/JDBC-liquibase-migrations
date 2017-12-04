@@ -1,5 +1,12 @@
 language: java
-jdk: oraclejdk8
 
-chmod +x gradle/wrapper/gradle-wrapper.jar
-git add -f gradle/wrapper/gradle-wrapper.jar
+jdk:
+  - oraclejdk8
+
+sudo: required
+
+before_install:
+ - chmod +x gradlew
+
+script:
+  - ./gradlew clean build -i --continue
