@@ -14,6 +14,10 @@ configurations {
 }
 
 dependencies {
+    testCompile 'junit:junit:4.12'
+    compile 'com.google.apis:google-api-services-sqladmin:v1beta4-rev48-1.23.0'
+    compile 'org.liquibase:liquibase-gradle-plugin:1.1.1'
+    
     compile group: 'postgresql', name: 'postgresql', version: '9.0-801.jdbc4'
     liquibase 'postgresql:postgresql:9.1-901-1.jdbc4'
     liquibase 'org.liquibase:liquibase-core:3.2.2'
