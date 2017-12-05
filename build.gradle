@@ -14,9 +14,9 @@ configurations {
 }
 
 dependencies {
-    compile files('D:/Projects/Projects_JAVA/liquibase/liquibase.jar')
-    compile files('D:/Projects/Projects_JAVA/JavaDBC/postgresql-42.1.4.jar')
-    compile files('D:/Projects/Projects_JAVA/JUnit/junit-4.10.jar')
+    compile files('https://github.com/Max-Tkachenko/java-libraries/liquibase.jar')
+    compile files('https://github.com/Max-Tkachenko/java-libraries/postgresql-42.1.4.jar')
+    compile files('https://github.com/Max-Tkachenko/java-libraries/junit-4.10.jar')
 
     compile group: 'postgresql', name: 'postgresql', version: '9.0-801.jdbc4'
     liquibase 'postgresql:postgresql:9.1-901-1.jdbc4'
