@@ -6,8 +6,8 @@ jdk:
 sudo: required
 
 before_install:
+ - export JAVA_HOME=/usr/lib/jvm/java-8-oracle
  - chmod +x gradlew
- - wget -O https://github.com/Max-Tkachenko/java-libraries/junit-4.10.jar
 
 script:
   - ./gradlew clean build -i --continue
