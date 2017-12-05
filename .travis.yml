@@ -7,7 +7,7 @@ sudo: required
 
 before_install:
  - chmod +x gradlew
- - wget https://github.com/Max-Tkachenko/java-libraries/junit-4.10.jar
+ - wget -O https://github.com/Max-Tkachenko/java-libraries/junit-4.10.jar
 
 script:
   - ./gradlew clean build -i --continue
