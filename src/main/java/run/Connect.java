@@ -7,6 +7,11 @@ import java.util.Properties;
 
 public class Connect {
     public static Connection connection;
+    /**
+    public static String URL = String.format("jdbc:postgresql://google/%s?socketFactory=run.SocketFactory"
+                    + "&socketFactoryArg=%s",
+            "postgres",
+            "enhanced-keel-188011:europe-west1:maxtkachenko-kpi"); */
     public static String URL = "jdbc:postgresql://localhost:5432/Messanger_DB";
     public static String DRIVER = "org.postgresql.Driver";
 
@@ -21,7 +26,7 @@ public class Connect {
         }
         catch (ClassNotFoundException ex) {
             ex.printStackTrace();
-            System.out.println("Connection failed (class not found)!");
+
         }
         catch (SQLException ex) {
             ex.printStackTrace();

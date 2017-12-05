@@ -14,9 +14,9 @@ configurations {
 }
 
 dependencies {
-    compile files('D:/Projects/Projects_JAVA/liquibase/liquibase.jar')
-    compile files('D:/Projects/Projects_JAVA/JavaDBC/postgresql-42.1.4.jar')
-    compile files('D:/Projects/Projects_JAVA/JUnit/junit-4.10.jar')
+    testCompile 'junit:junit:4.12'
+    compile 'com.google.apis:google-api-services-sqladmin:v1beta4-rev48-1.23.0'
+    compile 'org.liquibase:liquibase-gradle-plugin:1.1.1'
 
     compile group: 'postgresql', name: 'postgresql', version: '9.0-801.jdbc4'
     liquibase 'postgresql:postgresql:9.1-901-1.jdbc4'
@@ -24,6 +24,8 @@ dependencies {
     sqlDriver 'postgresql:postgresql:9.1-901-1.jdbc4'
     compile group: 'org.liquibase', name: 'liquibase-gradle-plugin', version: '1.2.4'
 }
+
+
 
 task(runProject, dependsOn: 'classes', type: JavaExec) {
     main = 'run.Main'
