@@ -5,11 +5,6 @@ jdk:
 
 sudo: required
 
-mkdir lib/
-wget -P "lib/" https://github.com/Max-Tkachenko/java-libraries/liquibase.jar
-wget -P "lib/" https://github.com/Max-Tkachenko/java-libraries/postgresql-42.1.4.jar
-wget -P "lib/" https://github.com/Max-Tkachenko/java-libraries/junit-4.10.jar
-
 before_install:
  - chmod +x gradlew
 
