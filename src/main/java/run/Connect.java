@@ -3,12 +3,10 @@ package run;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.Properties;
 
 public class Connect {
     public static Connection connection;
     public static String URL = "jdbc:mysql://91.238.103.81/messanger_db";
-    //public static String DRIVER = "org.postgresql.Driver";
     public static String DRIVER = "com.mysql.jdbc.Driver";
 
     public static void connect() {
