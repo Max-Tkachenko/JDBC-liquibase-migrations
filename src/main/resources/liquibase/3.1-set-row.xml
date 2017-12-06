@@ -7,19 +7,8 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd"
         logicalFilePath="3.1-set_row.xml">
     <changeSet id="set_row" author="max">
-
-        <insert tableName="Users">
-            <column name="id" value="4"></column>
-            <column name="name" value="Artem"></column>
-            <column name="surname" value="Kovalenko"></column>
-            <column name="age" value="20"></column>
-        </insert>
-
-        <insert tableName="Chats">
-            <column name="id" value="4"></column>
-            <column name="name" value="Kyiv Events"></column>
-            <column name="dateOfCreating" value="2010-04-11"></column>
-        </insert>
-
+        <sql>
+            INSERT INTO Chats SELECT * FROM Chats WHERE id = 3;
+        </sql>
     </changeSet>
 </databaseChangeLog>

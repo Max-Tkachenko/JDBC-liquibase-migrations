@@ -8,8 +8,6 @@ import run.Main;
 import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 import static junit.framework.Assert.assertEquals;
 
@@ -52,21 +50,26 @@ public class AllMigrationsTest {
 
     @Test
     public void setDataTest3() {
-        News news = new News(2, 2, "2015-04-23 19:48:10.0", "Голосование за ГБ2");
-        assertEquals(true, news.equals(GetData.news.get(1)));
+        News news = new News(1, 1, "2014-05-23 19:52:10.0", "Шутка про ГБ2");
+        assertEquals(true, news.equals(GetData.news.get(0)));
     }
 
     @Test
     public void setRowTest() throws SQLException, LiquibaseException {
+        Main.create_tables();
+        Main.set_data();
         Main.set_row();
         GetData.getData();
-        Chat chat = new Chat(4, "Kyiv Events", "2010-04-11");
+        Chat chat = new Chat(3, "FICT online", "2013-12-24");
         assertEquals(true, chat.equals(GetData.chats.get(3)));
     }
 
     @Test
-    public void updateRowTest() {
-
+    public void updateRowTest() throws SQLException, LiquibaseException {
+        Main.update_row();
+        GetData.getData();
+        News news = new News(2, 2, "2017-12-06 22:02:14.0", "Голосование за городской бюджет");
+        assertEquals(true, news.equals(GetData.news.get(1)));
     }
 
     @Test
