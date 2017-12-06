@@ -43,13 +43,17 @@ public class AllMigrationsTest {
     }
 
     @Test
-    public void setDataTest2() {
+    public void setDataTest2() throws SQLException, LiquibaseException {
+        Main.create_tables();
+        Main.set_data();
         Message message = new Message(1, 1, 1, "2014-05-23 19:52:10.0", "Привет!");
         assertEquals(true, message.equals(GetData.messages.get(0)));
     }
 
     @Test
-    public void setDataTest3() {
+    public void setDataTest3() throws SQLException, LiquibaseException {
+        Main.create_tables();
+        Main.set_data();
         News news = new News(1, 1, "2014-05-23 19:52:10.0", "Шутка про ГБ2");
         assertEquals(true, news.equals(GetData.news.get(0)));
     }
@@ -66,6 +70,8 @@ public class AllMigrationsTest {
 
     @Test
     public void updateRowTest() throws SQLException, LiquibaseException {
+        Main.create_tables();
+        Main.set_data();
         Main.update_row();
         GetData.getData();
         News news = new News(2, 2, "2017-12-06 22:02:14.0", "Голосование за городской бюджет");
