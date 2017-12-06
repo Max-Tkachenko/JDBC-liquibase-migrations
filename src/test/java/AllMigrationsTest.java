@@ -74,7 +74,7 @@ public class AllMigrationsTest {
         Main.set_data();
         Main.update_row();
         GetData.getData();
-        News news = new News(2, 2, "2017-12-06 22:02:14.0", "Голосование за городской бюджет");
+        News news = new News(2, 2, "2017-12-06 22:19:00.0", "Голосование за городской бюджет");
         assertEquals(true, news.equals(GetData.news.get(1)));
     }
 
