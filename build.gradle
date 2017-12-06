@@ -21,12 +21,5 @@ dependencies {
     compile group: 'org.liquibase', name: 'liquibase-gradle-plugin', version: '1.2.4'
 }
 
-task(runProject, dependsOn: 'classes', type: JavaExec) {
-    main = 'run.Main'
-    classpath = sourceSets.main.runtimeClasspath
-}
-
-defaultTasks 'runProject'
-
 
 
