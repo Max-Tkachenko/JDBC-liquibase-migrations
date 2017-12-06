@@ -14,12 +14,16 @@ public class GetData {
     public static List<Message> messages = new ArrayList<>();
     public static List<News> news = new ArrayList<>();
     public static List<UsersChats> usersChats = new ArrayList<>();
+    public static List<Notification> notifications = new ArrayList<>();
+    public static List<User> users = new ArrayList<>();
 
     public static void getData() {
         getChatsFromDB();
         getMessagesFromDB();
         getNewsFromDB();
         getUsersChatsFromDB();
+        getNotificationsFromDB();
+        getUsersFromDB();
     }
 
     public static void getChatsFromDB() {
@@ -79,6 +83,40 @@ public class GetData {
                 UsersChats userChat = new UsersChats(result.getInt(1), result.getInt(2), result.getInt(3));
                 if(!usersChats.contains(userChat)) {
                     usersChats.add(userChat);
+                }
+            }
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public static void getNotificationsFromDB() {
+        try {
+            Statement stmt = Connect.connection.createStatement();
+            String sql = "SELECT * FROM Notifications";
+            ResultSet result = stmt.executeQuery(sql);
+            while (result.next()) {
+                Notification note = new Notification(result.getInt(1), result.getInt(2), result.getString(3));
+                if(!notifications.contains(note)) {
+                    notifications.add(note);
+                }
+            }
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public static void getUsersFromDB() {
+        try {
+            Statement stmt = Connect.connection.createStatement();
+            String sql = "SELECT * FROM CopyUsers";
+            ResultSet result = stmt.executeQuery(sql);
+            while (result.next()) {
+                User user = new User(result.getInt(1), result.getString(2), result.getString(3), result.getInt(4));
+                if(!users.contains(user)) {
+                    users.add(user);
                 }
             }
         }

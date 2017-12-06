@@ -62,7 +62,26 @@ public class AllMigrationsTest {
     }
 
     @Test
+    public void setDataTest4() throws SQLException, LiquibaseException {
+        Connect.connect();
+        Main.create_tables();
+        Main.set_data();
+        Notification note = new Notification(1, 2, "КР с вышки 22.09");
+        assertEquals(true, note.equals(GetData.notifications.get(0)));
+    }
+
+    @Test
+    public void setDataTest5() throws SQLException, LiquibaseException {
+        Connect.connect();
+        Main.create_tables();
+        Main.set_data();
+        Notification note = new Notification(2, 2, "Лаба СУБД на пятницу");
+        assertEquals(true, note.equals(GetData.notifications.get(1)));
+    }
+
+    @Test
     public void setRowTest() throws SQLException, LiquibaseException {
+        Connect.connect();
         Main.create_tables();
         Main.set_data();
         Main.set_row();
@@ -73,6 +92,7 @@ public class AllMigrationsTest {
 
     @Test
     public void updateRowTest() throws SQLException, LiquibaseException {
+        Connect.connect();
         Main.create_tables();
         Main.set_data();
         Main.update_row();
@@ -82,22 +102,24 @@ public class AllMigrationsTest {
     }
 
     @Test
-    public void queryJoinTest() {
-
+    public void copyTableTest1() throws SQLException, LiquibaseException {
+        Connect.connect();
+        Main.create_tables();
+        Main.set_data();
+        Main.new_table();
+        GetData.getData();
+        User user = new User(1, "Max", "Tkachenko", 19);
+        assertEquals(true, user.equals(GetData.users.get(0)));
     }
 
     @Test
-    public void renameColumnTest() {
-
-    }
-
-    @Test
-    public void copyTableTest() {
-
-    }
-
-    @Test
-    public void dropTablseTest() {
-
+    public void copyTableTest2() throws SQLException, LiquibaseException {
+        Connect.connect();
+        Main.create_tables();
+        Main.set_data();
+        Main.new_table();
+        GetData.getData();
+        User user = new User(2, "Sasha", "Yurchuk", 18);
+        assertEquals(true, user.equals(GetData.users.get(1)));
     }
 }
