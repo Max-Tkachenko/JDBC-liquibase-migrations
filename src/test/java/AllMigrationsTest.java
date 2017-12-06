@@ -86,7 +86,7 @@ public class AllMigrationsTest {
         Main.set_data();
         Main.set_row();
         GetData.getData();
-        Chat chat = new Chat(3, "FICT online", "2013-12-24");
+        Chat chat = new Chat(4, "FICT_ACTS", "2010-05-10");
         assertEquals(true, chat.equals(GetData.chats.get(3)));
     }
 

@@ -8,10 +8,9 @@
         logicalFilePath="3.2-update_row.xml">
     <changeSet id="update_row" author="max">
 
-        <update tableName="UsersChats">
-            <column name="userId" value="2"/>
-            <where> id = 1 </where>
-        </update>
+        <sql>
+            UPDATE UsersChats SET userId = 2 WHERE id = 1;
+        </sql>
 
     </changeSet>
 </databaseChangeLog>
