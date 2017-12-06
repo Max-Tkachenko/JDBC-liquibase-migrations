@@ -13,7 +13,7 @@ public class Connect {
         try {
             Class.forName(DRIVER);
             connection = DriverManager.getConnection(URL, "max", "max12345");
-            System.out.println("\nConnection successful...");
+            System.out.println("Connection successful...");
         }
         catch (ClassNotFoundException ex) {
             ex.printStackTrace();

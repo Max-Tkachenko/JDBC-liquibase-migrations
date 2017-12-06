@@ -15,9 +15,10 @@ import static junit.framework.Assert.assertEquals;
 
 public class AllMigrationsTest {
 
-    public static List<Chat> chats = new ArrayList<>();
-    public static List<Message> messages = new ArrayList<>();
-    public static List<News> news = new ArrayList<>();
+    @BeforeClass
+    public static void onlyOnce() {
+        Connect.connect();
+    }
 
     @AfterClass
     public static void afterTest() {
@@ -37,7 +38,6 @@ public class AllMigrationsTest {
 
     @Test
     public void setDataTest1() throws SQLException, LiquibaseException {
-        Connect.connect();
         Main.set_data();
         GetData.getData();
         Chat chat = new Chat(1, "KPI Chan", "2010-05-10");
@@ -57,8 +57,11 @@ public class AllMigrationsTest {
     }
 
     @Test
-    public void setRowTest() {
-
+    public void setRowTest() throws SQLException, LiquibaseException {
+        Main.set_row();
+        GetData.getData();
+        Chat chat = new Chat(4, "Kyiv Events", "2010-04-11");
+        assertEquals(true, chat.equals(GetData.chats.get(3)));
     }
 
     @Test
