@@ -36,6 +36,7 @@ public class AllMigrationsTest {
 
     @Test
     public void setDataTest1() throws SQLException, LiquibaseException {
+        Connect.connect();
         Main.set_data();
         GetData.getData();
         Chat chat = new Chat(1, "KPI Chan", "2010-05-10");
@@ -44,6 +45,7 @@ public class AllMigrationsTest {
 
     @Test
     public void setDataTest2() throws SQLException, LiquibaseException {
+        Connect.connect();
         Main.create_tables();
         Main.set_data();
         Message message = new Message(1, 1, 1, "2014-05-23 19:52:10.0", "Привет!");
@@ -52,6 +54,7 @@ public class AllMigrationsTest {
 
     @Test
     public void setDataTest3() throws SQLException, LiquibaseException {
+        Connect.connect();
         Main.create_tables();
         Main.set_data();
         News news = new News(1, 1, "2014-05-23 19:52:10.0", "Шутка про ГБ2");
@@ -74,8 +77,8 @@ public class AllMigrationsTest {
         Main.set_data();
         Main.update_row();
         GetData.getData();
-        News news = new News(2, 2, "2017-12-06 22:19:00.0", "Голосование за городской бюджет");
-        assertEquals(true, news.equals(GetData.news.get(1)));
+        UsersChats usersChats = new UsersChats(1, 2, 2);
+        assertEquals(true, usersChats.equals(GetData.usersChats.get(0)));
     }
 
     @Test

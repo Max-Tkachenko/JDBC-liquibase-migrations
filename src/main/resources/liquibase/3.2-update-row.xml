@@ -8,14 +8,9 @@
         logicalFilePath="3.2-update_row.xml">
     <changeSet id="update_row" author="max">
 
-        <update tableName="Users">
-            <column name="age" value="19"/>
+        <update tableName="UsersChats">
+            <column name="userId" value="2"/>
             <where> id = 1 </where>
-        </update>
-
-        <update tableName="News">
-            <column name="context" value="Голосование за городской бюджет"/>
-            <where> id = 2 </where>
         </update>
 
     </changeSet>

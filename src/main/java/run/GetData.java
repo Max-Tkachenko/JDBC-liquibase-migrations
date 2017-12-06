@@ -1,8 +1,6 @@
 package run;
 
-import items.Chat;
-import items.Message;
-import items.News;
+import items.*;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,11 +13,13 @@ public class GetData {
     public static List<Chat> chats = new ArrayList<>();
     public static List<Message> messages = new ArrayList<>();
     public static List<News> news = new ArrayList<>();
+    public static List<UsersChats> usersChats = new ArrayList<>();
 
     public static void getData() {
         getChatsFromDB();
         getMessagesFromDB();
         getNewsFromDB();
+        getUsersChatsFromDB();
     }
 
     public static void getChatsFromDB() {
@@ -66,6 +66,23 @@ public class GetData {
                 }
             }
         } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public static void getUsersChatsFromDB() {
+        try {
+            Statement stmt = Connect.connection.createStatement();
+            String sql = "SELECT * FROM UsersChats";
+            ResultSet result = stmt.executeQuery(sql);
+            while (result.next()) {
+                UsersChats userChat = new UsersChats(result.getInt(1), result.getInt(2), result.getInt(3));
+                if(!usersChats.contains(userChat)) {
+                    usersChats.add(userChat);
+                }
+            }
+        }
+        catch (SQLException ex) {
             ex.printStackTrace();
         }
     }
