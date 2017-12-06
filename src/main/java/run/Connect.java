@@ -7,21 +7,14 @@ import java.util.Properties;
 
 public class Connect {
     public static Connection connection;
-    /**
-    public static String URL = String.format("jdbc:postgresql://google/%s?socketFactory=run.SocketFactory"
-                    + "&socketFactoryArg=%s",
-            "postgres",
-            "enhanced-keel-188011:europe-west1:maxtkachenko-kpi"); */
-    public static String URL = "jdbc:postgresql://localhost:5432/Messanger_DB";
-    public static String DRIVER = "org.postgresql.Driver";
+    public static String URL = "jdbc:mysql://localhost:91.238.103.81/messanger_db";
+    //public static String DRIVER = "org.postgresql.Driver";
+    public static String DRIVER = "com.mysql.jdbc.Driver";
 
     public static void connect() {
         try {
-            Class.forName(DRIVER);
-            Properties props = new Properties();
-            props.setProperty("user", "postgres");
-            props.setProperty("password", "max12345");
-            connection = DriverManager.getConnection(URL, props);
+           Class.forName(DRIVER);
+            connection = DriverManager.getConnection("jdbc:mysql://91.238.103.81/messanger_db", "max", "max12345");
             System.out.println("\nConnection successful...");
         }
         catch (ClassNotFoundException ex) {

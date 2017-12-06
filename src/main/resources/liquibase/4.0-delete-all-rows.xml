@@ -8,12 +8,12 @@
         logicalFilePath="4.0-delete_all_rows.xml">
     <changeSet id="delete_all_rows" author="max">
         <sql>
-            DELETE FROM "CopyNews";
-            DELETE FROM "Notifications";
-            DELETE FROM "UserMessages";
-            DELETE FROM "UsersChats";
-            DELETE FROM "Chats";
-            DELETE FROM "Users";
+            DELETE FROM CopyNews;
+            DELETE FROM Notifications;
+            DELETE FROM UserMessages;
+            DELETE FROM UsersChats;
+            DELETE FROM Chats;
+            DELETE FROM Users;
         </sql>
     </changeSet>
 </databaseChangeLog>

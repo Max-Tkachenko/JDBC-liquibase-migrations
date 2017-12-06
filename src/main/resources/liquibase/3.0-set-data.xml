@@ -63,61 +63,61 @@
             <column name="id" value="1"></column>
             <column name="userId" value="1"></column>
             <column name="chatId" value="1"></column>
-            <column name="departureDate" value="20140523 19:52:10"></column>
+            <column name="departureDate" value="2014-05-23 19:52:10"></column>
             <column name="context" value="Привет!"></column>
         </insert>
         <insert tableName="UserMessages">
             <column name="id" value="2"></column>
             <column name="userId" value="1"></column>
             <column name="chatId" value="1"></column>
-            <column name="departureDate" value="20150423 19:48:10"></column>
+            <column name="departureDate" value="2015-04-23 19:48:10"></column>
             <column name="context" value="Как дела?"></column>
         </insert>
         <insert tableName="UserMessages">
             <column name="id" value="3"></column>
             <column name="userId" value="2"></column>
             <column name="chatId" value="3"></column>
-            <column name="departureDate" value="20161223 13:12:09"></column>
+            <column name="departureDate" value="2016-12-23 13:12:09"></column>
             <column name="context" value="Норм)))"></column>
         </insert>
         <insert tableName="UserMessages">
             <column name="id" value="4"></column>
             <column name="userId" value="1"></column>
             <column name="chatId" value="3"></column>
-            <column name="departureDate" value="20160723 15:23:54"></column>
+            <column name="departureDate" value="2016-07-23 15:23:54"></column>
             <column name="context" value="Сделал лабу по СУБД?))"></column>
         </insert>
         <insert tableName="UserMessages">
             <column name="id" value="5"></column>
             <column name="userId" value="3"></column>
             <column name="chatId" value="2"></column>
-            <column name="departureDate" value="20140623 10:34:10"></column>
+            <column name="departureDate" value="2014-06-23 10:34:10"></column>
             <column name="context" value="Привет, бро)"></column>
         </insert>
         <insert tableName="UserMessages">
             <column name="id" value="6"></column>
             <column name="userId" value="3"></column>
             <column name="chatId" value="1"></column>
-            <column name="departureDate" value="20170523 07:44:35"></column>
+            <column name="departureDate" value="2017-05-23 07:44:35"></column>
             <column name="context" value="Идешь на пару?"></column>
         </insert>
         
         <insert tableName="News">
             <column name="id" value="1"></column>
             <column name="chatId" value="1"></column>
-            <column name="dateOfCreating" value="20140523 19:52:10"></column>
+            <column name="dateOfCreating" value="2014-05-23 19:52:10"></column>
             <column name="context" value="Шутка про ГБ2"></column>
         </insert>
         <insert tableName="News">
             <column name="id" value="2"></column>
             <column name="chatId" value="2"></column>
-            <column name="dateOfCreating" value="20150423 19:48:10"></column>
+            <column name="dateOfCreating" value="2015-04-23 19:48:10"></column>
             <column name="context" value="Голосование за ГБ2"></column>
         </insert>
         <insert tableName="News">
             <column name="id" value="3"></column>
             <column name="chatId" value="2"></column>
-            <column name="dateOfCreating" value="20160723 15:23:54"></column>
+            <column name="dateOfCreating" value="2016-07-23 15:23:54"></column>
             <column name="context" value="Олимпиада с математики"></column>
         </insert>
 

@@ -8,8 +8,8 @@
         logicalFilePath="5.2-new_table.xml">
     <changeSet id="new_table" author="max">
         <sql>
-            SELECT * INTO "CopyNews" FROM "News";
-            DROP TABLE "News";
+            CREATE TABLE CopyNews SELECT * FROM News;
+            DROP TABLE News;
         </sql>
     </changeSet>
 </databaseChangeLog>

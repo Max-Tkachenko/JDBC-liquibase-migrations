@@ -8,9 +8,9 @@
         logicalFilePath="5.1-new_column.xml">
     <changeSet id="new_column" author="max">
         <sql>
-            ALTER TABLE "News" ADD "news_text" TEXT;
-            UPDATE "News" SET "news_text" = "context";
-            ALTER TABLE "News" DROP COLUMN "context";
+            ALTER TABLE News ADD news_text TEXT;
+            UPDATE News SET news_text = context;
+            ALTER TABLE News DROP COLUMN context;
         </sql>
     </changeSet>
 </databaseChangeLog>

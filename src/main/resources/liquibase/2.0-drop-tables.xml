@@ -7,23 +7,13 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd"
         logicalFilePath="2.0-drop-tables.xml">
     <changeSet id="drop_tables" author="max">
-        <dropTable cascadeConstraints="true"
-                   schemaName="public"
-                   tableName="CopyNews" />
-        <dropTable cascadeConstraints="true"
-                   schemaName="public"
-                   tableName="Notifications" />
-        <dropTable cascadeConstraints="true"
-                   schemaName="public"
-                   tableName="UserMessages" />
-        <dropTable cascadeConstraints="true"
-                   schemaName="public"
-                   tableName="UsersChats" />
-        <dropTable cascadeConstraints="true"
-                   schemaName="public"
-                   tableName="Chats" />
-        <dropTable cascadeConstraints="true"
-                   schemaName="public"
-                   tableName="Users" />
+        <sql>
+            DROP TABLE CopyNews;
+            DROP TABLE Notifications;
+            DROP TABLE UserMessages;
+            DROP TABLE UsersChats;
+            DROP TABLE Chats;
+            DROP TABLE Users;
+        </sql>
     </changeSet>
 </databaseChangeLog>

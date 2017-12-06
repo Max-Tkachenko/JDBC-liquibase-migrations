@@ -8,56 +8,50 @@
         logicalFilePath="1.0-create-tables.xml">
     <changeSet id="create_tables" author="max">
         <sql>
-            CREATE TABLE public."Users"
+            CREATE TABLE Users
             (
             id integer NOT NULL,
-            "name" text NOT NULL,
-            "surname" text,
-            "age" integer NOT NULL,
-            CONSTRAINT "Users_pkey" PRIMARY KEY (id)
+            name text NOT NULL,
+            surname text,
+            age integer NOT NULL
             );
 
-            CREATE TABLE public."Chats"
+            CREATE TABLE Chats
             (
             id integer NOT NULL,
-            "name" text NOT NULL,
-            "dateOfCreating" date NOT NULL,
-            CONSTRAINT "Chats_pkey" PRIMARY KEY (id)
+            name text NOT NULL,
+            dateOfCreating date NOT NULL
             );
 
-            CREATE TABLE public."UsersChats"
+            CREATE TABLE UsersChats
             (
             id integer NOT NULL,
-            "userId" integer REFERENCES "Users"(id) NOT NULL,
-            "chatId" integer REFERENCES "Chats"(id) NOT NULL,
-            CONSTRAINT "UsersChats_pkey" PRIMARY KEY (id)
+            userId integer REFERENCES Users.id,
+            chatId integer REFERENCES Chats.id
             );
 
-            CREATE TABLE public."Notifications"
+            CREATE TABLE Notifications
             (
             id integer NOT NULL,
-            "userId" integer REFERENCES "Users"(id) NOT NULL,
-            "context" text NOT NULL,
-            CONSTRAINT "Notifications_pkey" PRIMARY KEY (id)
+            userId integer REFERENCES Users.id,
+            context text NOT NULL
             );
 
-            CREATE TABLE public."UserMessages"
+            CREATE TABLE UserMessages
             (
             id integer NOT NULL,
-            "userId" integer REFERENCES "Users"(id) NOT NULL,
-            "chatId" integer REFERENCES "Chats"(id) NOT NULL,
-            "departureDate" timestamp NOT NULL,
-            "context" text NOT NULL,
-            CONSTRAINT "UserMessages_pkey" PRIMARY KEY (id)
+            userId integer REFERENCES Users.id,
+            chatId integer REFERENCES Chats.id,
+            departureDate timestamp NOT NULL,
+            context text NOT NULL
             );
 
-            CREATE TABLE public."News"
+            CREATE TABLE News
             (
             id integer NOT NULL,
-            "chatId" integer REFERENCES "Chats"(id) NOT NULL,
-            "dateOfCreating" timestamp NOT NULL,
-            "context" text NOT NULL,
-            CONSTRAINT "News_pkey" PRIMARY KEY (id)
+            chatId integer REFERENCES Chats.id,
+            dateOfCreating timestamp NOT NULL,
+            context text NOT NULL
             );
         </sql>
     </changeSet>
