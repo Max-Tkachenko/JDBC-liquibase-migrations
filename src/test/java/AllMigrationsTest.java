@@ -2,7 +2,7 @@ import items.*;
 import liquibase.exception.LiquibaseException;
 import org.junit.*;
 import run.Connect;
-import run.GetDataFromDB;
+import run.GetData;
 import run.Main;
 
 import java.sql.DatabaseMetaData;
@@ -42,21 +42,21 @@ public class AllMigrationsTest {
     @Test
     public void setDataTest1() throws SQLException, LiquibaseException {
         Main.set_data();
-        GetDataFromDB.getData();
+        GetData.getData();
         Chat chat = new Chat(1, "KPI Chan", "2010-05-10");
-        assertEquals(true, chat.equals(GetDataFromDB.chats.get(0)));
+        assertEquals(true, chat.equals(GetData.chats.get(0)));
     }
 
     @Test
     public void setDataTest2() {
         Message message = new Message(1, 1, 1, "2014-05-23 19:52:10.0", "Привет!");
-        assertEquals(true, message.equals(GetDataFromDB.messages.get(0)));
+        assertEquals(true, message.equals(GetData.messages.get(0)));
     }
 
     @Test
     public void setDataTest3() {
         News news = new News(2, 2, "2015-04-23 19:48:10.0", "Голосование за ГБ2");
-        assertEquals(true, news.equals(GetDataFromDB.news.get(1)));
+        assertEquals(true, news.equals(GetData.news.get(1)));
     }
 
     @Test
