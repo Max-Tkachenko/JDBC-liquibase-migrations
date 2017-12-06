@@ -11,7 +11,7 @@ public class Connect {
 
     public static void connect() {
         try {
-           Class.forName(DRIVER);
+            Class.forName(DRIVER);
             connection = DriverManager.getConnection(URL, "max", "max12345");
             System.out.println("\nConnection successful...");
         }
@@ -21,7 +21,7 @@ public class Connect {
         }
         catch (SQLException ex) {
             ex.printStackTrace();
-            System.out.println("Connection failed (PostgreSQL exception)!");
+            System.out.println("Connection failed (MySQL exception)!");
         }
     }
     public static void disconnect() {

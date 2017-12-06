@@ -19,11 +19,6 @@ public class AllMigrationsTest {
     public static List<Message> messages = new ArrayList<>();
     public static List<News> news = new ArrayList<>();
 
-    @BeforeClass
-    public static void onlyOnce() {
-        Connect.connect();
-    }
-
     @AfterClass
     public static void afterTest() {
         Connect.disconnect();
@@ -31,6 +26,7 @@ public class AllMigrationsTest {
 
     @Test
     public void createTablesTest() throws SQLException, LiquibaseException {
+        Connect.connect();
         Main.create_tables();
         DatabaseMetaData md = Connect.connection.getMetaData ();
         ResultSet rs = md.getTables ("messanger_db", "", "%", null);
@@ -41,6 +37,7 @@ public class AllMigrationsTest {
 
     @Test
     public void setDataTest1() throws SQLException, LiquibaseException {
+        Connect.connect();
         Main.set_data();
         GetData.getData();
         Chat chat = new Chat(1, "KPI Chan", "2010-05-10");
