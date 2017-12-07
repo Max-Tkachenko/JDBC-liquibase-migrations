@@ -13,7 +13,7 @@
             DELETE FROM UserMessages;
             DELETE FROM UsersChats;
             DELETE FROM Chats;
-            DELETE FROM Users;
+            DELETE FROM News;
         </sql>
     </changeSet>
 </databaseChangeLog>
