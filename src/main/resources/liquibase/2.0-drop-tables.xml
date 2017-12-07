@@ -8,7 +8,7 @@
         logicalFilePath="2.0-drop-tables.xml">
     <changeSet id="drop_tables" author="max">
         <sql>
-            DROP TABLE CopyNews;
+            DROP TABLE CopyUsers;
             DROP TABLE Notifications;
             DROP TABLE UserMessages;
             DROP TABLE UsersChats;
