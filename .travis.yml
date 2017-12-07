@@ -12,8 +12,6 @@ script:
   - ./gradlew clean build -i --continue
   - ./gradlew check
   - ./gradlew codeCoverageReport
-
-after_success:
-  - if [ -e ./gradlew ]; then ./gradlew jacocoTestReport;else gradle jacocoTestReport;fi
-  - bash <(curl -s https://codecov.io/bash)
   
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
