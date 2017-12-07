@@ -10,6 +10,8 @@ before_install:
  
 script:
   - ./gradlew clean build -i --continue
+  - ./gradlew check
+  - ./gradlew codeCoverageReport
 
 after_success:
   - if [ -e ./gradlew ]; then ./gradlew jacocoTestReport;else gradle jacocoTestReport;fi
