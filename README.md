@@ -4,4 +4,3 @@
 [![Build Status](https://travis-ci.org/Max-Tkachenko/JDBC-liquibase-migrations.svg?branch=master)](https://travis-ci.org/Max-Tkachenko/JDBC-liquibase-migrations)
 [![codecov](https://codecov.io/gh/Max-Tkachenko/JDBC-liquibase-migrations/branch/master/graph/badge.svg)](https://codecov.io/gh/Max-Tkachenko/JDBC-liquibase-migrations)
 
-![alt text](https://github.com/Max-Tkachenko/JDBC-liquibase-migrations/blob/master/1.png)
