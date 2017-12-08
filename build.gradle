@@ -1,16 +1,8 @@
-plugins {
-    id "groovy"
-    id "maven"
-    id "idea"
-    id "signing"
-    id "maven-publish"
-    id "jacoco"
-    id "com.jfrog.bintray" version "1.4"
-    id "com.github.kt3k.coveralls" version "2.5.0"
-}
+version '1.0-SNAPSHOT'
 
-group 'org.kt3k.gradle.plugin'
-version '2.8.2'
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
@@ -26,13 +18,6 @@ dependencies {
     compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.6'
     liquibase 'org.liquibase:liquibase-core:3.2.2'
     compile group: 'org.liquibase', name: 'liquibase-gradle-plugin', version: '1.2.4'
-
-    testCompile 'org.mockito:mockito-all:1.9.5'
-    testCompile 'com.github.tomakehurst:wiremock:1.18'
 }
 
-jacocoTestReport {
-    reports {
-        xml.enabled true
-    }
-}
+
