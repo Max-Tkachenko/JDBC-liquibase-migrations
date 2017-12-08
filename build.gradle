@@ -1,7 +1,8 @@
 plugins {
+    id "groovy"
+    id "maven"
     id "idea"
     id "signing"
-    id "maven"
     id "maven-publish"
     id "jacoco"
     id "com.jfrog.bintray" version "1.4"
