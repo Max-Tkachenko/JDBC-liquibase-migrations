@@ -1,9 +1,5 @@
 plugins {
-    id "groovy"
     id "maven"
-    id "eclipse"
-    id "idea"
-    id "signing"
     id "maven-publish"
     id "jacoco"
     id "com.jfrog.bintray" version "1.4"
@@ -37,5 +33,3 @@ jacocoTestReport {
         xml.enabled true
     }
 }
-
-
