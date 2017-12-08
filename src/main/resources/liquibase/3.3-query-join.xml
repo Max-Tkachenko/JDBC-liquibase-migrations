@@ -8,7 +8,7 @@
         logicalFilePath="3.3-query_join.xml">
     <changeSet id="query_join" author="max">
         <sql>
-            SELECT * FROM UserMessages LEFT JOIN Users ON UserMessages.userId = Users.id;
+            SELECT * FROM UserMessages LEFT JOIN Chats ON UserMessages.chatId = Chats.id;
         </sql>
     </changeSet>
 </databaseChangeLog>

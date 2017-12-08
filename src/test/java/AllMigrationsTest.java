@@ -14,17 +14,17 @@ import static junit.framework.Assert.assertEquals;
 public class AllMigrationsTest {
 
     @BeforeClass
-    public static void onlyOnce() {
+    public static void onlyOnce() throws SQLException, ClassNotFoundException{
         Connect.connect();
     }
 
     @AfterClass
-    public static void afterTest() {
-        Connect.disconnect();
+    public static void afterTest() throws SQLException, ClassNotFoundException {
+        Connect.connection.close();
     }
 
     @Test
-    public void createTablesTest() throws SQLException, LiquibaseException {
+    public void createTablesTest() throws SQLException, LiquibaseException, ClassNotFoundException {
         Connect.connect();
         Main.create_tables();
         DatabaseMetaData md = Connect.connection.getMetaData ();
@@ -35,7 +35,7 @@ public class AllMigrationsTest {
     }
 
     @Test
-    public void setDataTest1() throws SQLException, LiquibaseException {
+    public void setDataTest1() throws SQLException, LiquibaseException, ClassNotFoundException {
         Connect.connect();
         Main.set_data();
         GetData.getData();
@@ -44,7 +44,7 @@ public class AllMigrationsTest {
     }
 
     @Test
-    public void setDataTest2() throws SQLException, LiquibaseException {
+    public void setDataTest2() throws SQLException, LiquibaseException, ClassNotFoundException {
         Connect.connect();
         Main.create_tables();
         Main.set_data();
@@ -53,7 +53,7 @@ public class AllMigrationsTest {
     }
 
     @Test
-    public void setDataTest3() throws SQLException, LiquibaseException {
+    public void setDataTest3() throws SQLException, LiquibaseException, ClassNotFoundException {
         Connect.connect();
         Main.create_tables();
         Main.set_data();
@@ -62,7 +62,7 @@ public class AllMigrationsTest {
     }
 
     @Test
-    public void setDataTest4() throws SQLException, LiquibaseException {
+    public void setDataTest4() throws SQLException, LiquibaseException, ClassNotFoundException {
         Connect.connect();
         Main.create_tables();
         Main.set_data();
@@ -71,7 +71,7 @@ public class AllMigrationsTest {
     }
 
     @Test
-    public void setDataTest5() throws SQLException, LiquibaseException {
+    public void setDataTest5() throws SQLException, LiquibaseException, ClassNotFoundException {
         Connect.connect();
         Main.create_tables();
         Main.set_data();
@@ -80,7 +80,7 @@ public class AllMigrationsTest {
     }
 
     @Test
-    public void setRowTest() throws SQLException, LiquibaseException {
+    public void setRowTest() throws SQLException, LiquibaseException, ClassNotFoundException {
         Connect.connect();
         Main.create_tables();
         Main.set_data();
@@ -91,7 +91,7 @@ public class AllMigrationsTest {
     }
 
     @Test
-    public void updateRowTest() throws SQLException, LiquibaseException {
+    public void updateRowTest() throws SQLException, LiquibaseException, ClassNotFoundException {
         Connect.connect();
         Main.create_tables();
         Main.set_data();
@@ -102,7 +102,7 @@ public class AllMigrationsTest {
     }
 
     @Test
-    public void copyTableTest1() throws SQLException, LiquibaseException {
+    public void copyTableTest1() throws SQLException, LiquibaseException, ClassNotFoundException {
         Connect.connect();
         Main.create_tables();
         Main.set_data();
@@ -113,7 +113,7 @@ public class AllMigrationsTest {
     }
 
     @Test
-    public void copyTableTest2() throws SQLException, LiquibaseException {
+    public void copyTableTest2() throws SQLException, LiquibaseException, ClassNotFoundException {
         Connect.connect();
         Main.create_tables();
         Main.set_data();
@@ -122,4 +122,28 @@ public class AllMigrationsTest {
         User user = new User(2, "Sasha", "Yurchuk", 18);
         assertEquals(true, user.equals(GetData.users.get(1)));
     }
+
+    @Test
+    public void deleteRowTest() throws SQLException, LiquibaseException, ClassNotFoundException {
+        Connect.connect();
+        Main.create_tables();
+        Main.set_data();
+        Main.delete_row();
+        GetData.getData();
+        boolean bool = true;
+        if(GetData.notifications.size() > 2) {
+            bool = false;
+        }
+        assertEquals(true, bool);
+    }
+
+    @Test
+    public void joinTest() throws SQLException, LiquibaseException, ClassNotFoundException {
+        Connect.connect();
+        Main.create_tables();
+        Main.set_data();
+        Main.query_join();
+        GetData.getData();
+    }
+
 }

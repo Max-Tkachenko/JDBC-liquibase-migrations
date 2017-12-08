@@ -10,20 +10,12 @@ import liquibase.exception.LiquibaseException;
 import liquibase.resource.FileSystemResourceAccessor;
 
 import java.io.File;
+import java.sql.SQLException;
 
 public class Main {
-    public static void main(String[] args) throws LiquibaseException {
+    public static void main(String[] args) throws LiquibaseException, SQLException, ClassNotFoundException {
         Connect.connect();
-        try {
-            testMigrations();
-            System.out.println("All migrations successful...");
-        } catch (LiquibaseException ex) {
-            ex.printStackTrace();
-        }
-        Connect.disconnect();
-    }
 
-    public static void testMigrations() throws LiquibaseException {
         create_tables();
         set_data();
         set_row();
